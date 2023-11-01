@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    #bodyOne {
+      /* Define a linear gradient for the background */
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.7)), url("LoginBack.webp");
+      background-size:cover;
+      animation: backgroundChange 10s linear infinite; /* Adjust the duration (5s) as needed */
+    }
+
+    @keyframes backgroundChange {
+      0% {
+        background-image: url("LoginBack.webp");
+      }
+      20% {
+        background-image: url("img016.jpg");
+      }
+      40% {
+        background-image: url("background uop 002.avif");
+      }
+      65% {
+        background-image: url("img016.jpg");
+      }
+      100% {
+        background-image: url("LoginBack.webp");
+      }
+    }
+
+    .roundImage {
+      border-radius: 50%;
+      width: 100px;
+      object-fit: cover;
+      height: 100px;
+      justify-self: center;
+    }
+
+    .main {
+      display: grid;
+      margin: auto;
+      gap: 15px;
+      width: 450px;
+      font-size: 20px;
+      margin-top: 100px;
+      border: 2px solid blue;
+      padding: 15px;
+      height: 450px;
+      background-color: rgba(13, 8, 8, 0.397);
+    }
+
+    .innerDiv {
+      display: grid;
+      grid-template-columns: 1fr 10fr;
+      gap: 15px;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body id="bodyOne">
+  <div class="main">
+    <img src="Logo Woubishet png.png" class="roundImage" />
+    <div class="innerDiv">
+      <label>Email</label>
+      <input type="text" id="email" />
+      <label>Password</label>
+      <input type="password" id="password" />
+      <p style="text-align: center; padding: 0%; margin: 20%;"></p>
+      <label style="font-weight: 800; color: white; justify-content: center; font-size: larger;">Digital Empowerment Hub</label>
+    </div>
+
+    <button style="justify-self: center; color: black; background-color: lightblue; height: 100%; width: 90%; font-size: medium;" onclick="submit();"><strong>Sign in</strong></button>
+    <div style="justify-self: center; color: red;text-decoration: none;">
+      <a href="Signup.html"><strong style="color: red;text-decoration: none;">New User &nbsp;or&nbsp; SignUp</strong></a>
+    </div>
+  </div>
+
+  <script>
+    let emails = [
+      { email: "woub1@manager", pwd: "123", role: "manager" },
+      { email: "woub2@customer", pwd: "456", role: "customer" },
+    ];
+
+    function submit() {
+      let email = document.getElementById("email").value;
+      let pwd = document.getElementById("password").value;
+      let e = emails.filter(function (item) {
+        return email == item.email && pwd == item.pwd;
+      });
+      if (e.length === 0) {
+        alert("Please provide a valid user name and password!");
+      } else if (e[0].role === "manager") {
+        window.location.href = "index.html";
+      } else {
+        window.location.href = "index.html";
+      }
+    }
+  </script>
+</body>
+</html>
